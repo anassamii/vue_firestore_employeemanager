@@ -1,60 +1,60 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Home from '@/components/Home';
-import ViewEmployee from '@/components/ViewEmployee';
-import NewEmployee from '@/components/NewEmployee';
-import EditEmployee from '@/components/EditEmployee';
-import Login from '@/components/Login';
-import Register from '@/components/Register';
-import firebase from 'firebase';
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "@/components/Home";
+import ViewEmployee from "@/components/ViewEmployee";
+import NewEmployee from "@/components/NewEmployee";
+import EditEmployee from "@/components/EditEmployee";
+import Login from "@/components/Login";
+import Register from "@/components/Register";
+import firebase from "firebase";
 
 Vue.use(Router);
 
 let router = new Router({
   routes: [
     {
-      path: '/',
-      name: 'Home',
+      path: "/",
+      name: "Home",
       component: Home,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: '/login',
-      name: 'login',
+      path: "/login",
+      name: "login",
       component: Login,
       meta: {
         requiresGuest: true
       }
     },
     {
-      path: '/register',
-      name: 'register',
+      path: "/register",
+      name: "register",
       component: Register,
       meta: {
         requiresGuest: true
       }
     },
     {
-      path: '/new',
-      name: 'new-employee',
+      path: "/new",
+      name: "new-employee",
       component: NewEmployee,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: '/edit/:employee_id',
-      name: 'edit-employee',
+      path: "/edit/:employee_id",
+      name: "edit-employee",
       component: EditEmployee,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: '/:employee_id',
-      name: 'view-employee',
+      path: "/:employee_id",
+      name: "view-employee",
       component: ViewEmployee,
       meta: {
         requiresAuth: true
@@ -71,7 +71,7 @@ router.beforeEach((to, from, next) => {
     if (!firebase.auth().currentUser) {
       // Go to login
       next({
-        path: '/login',
+        path: "/login",
         query: {
           redirect: to.fullPath
         }
@@ -81,11 +81,11 @@ router.beforeEach((to, from, next) => {
       next();
     }
   } else if (to.matched.some(record => record.meta.requiresGuest)) {
-    // Check if NO logged user
+    // Check if logged user
     if (firebase.auth().currentUser) {
-      // Go to login
+      // Go to dashboard
       next({
-        path: '/',
+        path: "/",
         query: {
           redirect: to.fullPath
         }
