@@ -1,8 +1,8 @@
-export default { 
-  apiKey: "AIzaSyBD9fVN9f7xF4NPsCS2lb1KAo5rFVU3C0w",
-  authDomain: "vuefs-dev.firebaseapp.com",
-  databaseURL: "https://vuefs-dev.firebaseio.com",
-  projectId: "vuefs-dev",
-  storageBucket: "",
-  messagingSenderId: "622175178817"
-}
+export default {
+  apiKey: "AIzaSyAW2JyntCaLWt4h39rfrUBYrLWmrXDq-GM",
+  authDomain: "vuejs-123de.firebaseapp.com",
+  projectId: "vuejs-123de",
+  storageBucket: "vuejs-123de.appspot.com",
+  messagingSenderId: "846452003657",
+  appId: "1:846452003657:web:60e4aeb6e73ab8b9ab8098",
+};
